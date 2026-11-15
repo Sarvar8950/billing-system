@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Rice",
+    "price": 60
+  },
+  {
+    "id": 2,
+    "name": "Wheat Flour",
+    "price": 40
+  },
+  {
+    "id": 3,
+    "name": "Sugar",
+    "price": 45
+  },
+  {
+    "id": 4,
+    "name": "Cooking Oil",
+    "price": 150
+  },
+  {
+    "id": 5,
+    "name": "Milk",
+    "price": 30
+  },
+  {
+    "id": 6,
+    "name": "Tea",
+    "price": 120
+  }
+]
