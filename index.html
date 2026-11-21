@@ -1,94 +1,193 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing System</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
 </head>
+
 <body>
 
-<header>
-    <h1>Billing System</h1>
-    <p>Product Billing & Invoice Generator</p>
-</header>
+    <header>
+        <div class="header-content">
+            <h2>Product Billing & Invoice Generator</h2>
+            <div class="flex-row">
+                <a class="page-link" href="addNewItem.html">Manage Items</a>
+                <div id="excelDisconnected" style="display:none;">
+                    <button onclick="connectExcelFile()" class="bill-btn">
+                        Connect Excel File
+                    </button>
+                </div>
+                <div id="priceJsonDisconnected">
+                    <button type="button" id="selectPriceFile" class="bill-btn">
+                        Select price.json
+                    </button>
+                </div>
 
-<div class="container">
-
-    <!-- Products Section -->
-    <section class="products">
-        <h2>Available Items</h2>
-
-        <input
-            type="text"
-            id="search"
-            placeholder="Search products..."
-        >
-
-        <div id="productList" class="product-list">
-            Loading products...
+            </div>
         </div>
-    </section>
-
-    <!-- Cart Section -->
-    <section class="cart">
-        <h2>Shopping Cart</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Total</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody id="cartItems"></tbody>
-        </table>
-
-        <div class="total-section">
-            <h3>
-                Grand Total:
-                ₹<span id="grandTotal">0.00</span>
-            </h3>
-        </div>
-
-        <button onclick="generateBill()" class="bill-btn">
-            Generate Bill
-        </button>
-
-        <button onclick="clearCart()" class="clear-btn">
-            Clear Cart
-        </button>
-    </section>
-
-</div>
+    </header>
 
 
-<!-- Custom Confirmation Popup -->
-<div id="confirmPopup" class="popup-overlay">
-    <div class="popup-box">
-        <h2>Clear Cart?</h2>
-        <p>Are you sure you want to remove all items from your cart?</p>
+    <div class="container">
 
-        <div class="popup-buttons">
-            <button class="cancel-btn" onclick="closePopup()">
-                Cancel
+        <!-- Products Section -->
+        <section class="products">
+            <h2>Available Items</h2>
+
+            <div class="price-file-controls">
+                <p id="priceFileStatus" role="status" aria-live="polite">
+                    Select price.json to load products.
+                </p>
+            </div>
+
+            <input type="text" id="search" placeholder="Search products...">
+
+            <div id="productList" class="product-list">
+                Select price.json to view products.
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart">
+            <h2>Shopping Cart</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+            </table>
+
+            <div class="total-section">
+                <h3>
+                    Grand Total:
+                    ₹<span id="grandTotal">0.00</span>
+                </h3>
+            </div>
+
+            <button onclick="generateBill()" class="bill-btn">
+                Generate Bill
             </button>
 
-            <button class="confirm-btn" onclick="confirmClearCart()">
-                Yes, Clear Cart
+            <button onclick="clearCart()" class="clear-btn">
+                Clear Cart
             </button>
+        </section>
+
+    </div>
+
+
+    <!-- TRANSACTION HISTORY SECTION -->
+    <section class="transaction-section">
+
+        <h2>Transaction History</h2>
+
+        <div class="transaction-buttons">
+
+            <button onclick="showTransactions()" class="bill-btn">
+                Show Transactions
+            </button>
+
+            <button onclick="hideTransactions()" class="clear-btn">
+                Hide Transactions
+            </button>
+
+            <button onclick="downloadAllTransactions()" class="bill-btn">
+                Download All Transactions (PDF)
+            </button>
+
+        </div>
+
+        <div id="transactionContainer" style="display:none;">
+
+            <h3>All Billing Transactions</h3>
+
+            <div class="transaction-table-wrapper">
+
+                <table id="transactionTable">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Invoice ID</th>
+                            <th>Invoice Date</th>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Grand Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transactionBody"></tbody>
+
+                </table>
+
+            </div>
+
+            <p id="transactionStatus"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXCEL FILE CONNECTION -->
+    <section class="excel-section">
+
+        <h2>Excel File Connection</h2>
+
+        <p id="excelStatus">
+            No Excel file connected.
+        </p>
+
+        <button onclick="connectExcelFile()" class="bill-btn">
+            Connect Excel File
+        </button>
+
+        <button onclick="syncProductsToExcel()" class="bill-btn">
+            Update Excel File
+        </button>
+
+    </section>
+
+
+    <!-- Clear Cart confirmation Popup -->
+    <div id="confirmPopup" class="popup-overlay">
+        <div class="popup-box">
+            <h2>Clear Cart?</h2>
+            <p>Are you sure you want to remove all items from your cart?</p>
+
+            <div class="popup-buttons">
+                <button class="cancel-btn" onclick="closePopup()">
+                    Cancel
+                </button>
+
+                <button class="confirm-btn" onclick="confirmClearCart()">
+                    Yes, Clear Cart
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
 
-<!-- Invoice Section -->
-<div id="invoice" class="invoice"></div>
+    <!-- Invoice Section -->
+    <div id="invoice" class="invoice"></div>
 
-<script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

@@ -1,32 +1,302 @@
 [
   {
     "id": 1,
-    "name": "Rice",
-    "price": 60
+    "name": "Wheat Flour (Atta) 5kg",
+    "price": 210
   },
   {
     "id": 2,
-    "name": "Wheat Flour",
-    "price": 40
+    "name": "Basmati Rice 1kg",
+    "price": 110
   },
   {
     "id": 3,
-    "name": "Sugar",
-    "price": 45
+    "name": "Toor Dal 1kg",
+    "price": 160
   },
   {
     "id": 4,
-    "name": "Cooking Oil",
+    "name": "Mustard Oil 1L",
     "price": 150
   },
   {
     "id": 5,
-    "name": "Milk",
+    "name": "Sugar 1kg",
+    "price": 45
+  },
+  {
+    "id": 7,
+    "name": "Iodized Salt 1kg",
+    "price": 28
+  },
+  {
+    "id": 8,
+    "name": "Turmeric Powder (Haldi) 200g",
+    "price": 65
+  },
+  {
+    "id": 9,
+    "name": "Red Chilli Powder 200g",
+    "price": 80
+  },
+  {
+    "id": 10,
+    "name": "Cumin Seeds (Jeera) 100g",
+    "price": 55
+  },
+  {
+    "id": 11,
+    "name": "Desi Ghee 500ml",
+    "price": 320
+  },
+  {
+    "id": 12,
+    "name": "Moong Dal 1kg",
+    "price": 130
+  },
+  {
+    "id": 13,
+    "name": "Biscuits Pack",
     "price": 30
   },
   {
-    "id": 6,
+    "id": 14,
+    "name": "Instant Noodles",
+    "price": 15
+  },
+  {
+    "id": 15,
+    "name": "Bathing Soap",
+    "price": 40
+  },
+  {
+    "id": 16,
+    "name": "Toothpaste 100g",
+    "price": 65
+  },
+  {
+    "id": 17,
+    "name": "Detergent Powder 1kg",
+    "price": 95
+  },
+  {
+    "id": 18,
+    "name": "Dishwash Bar",
+    "price": 20
+  },
+  {
+    "id": 19,
+    "name": "Milk 1L",
+    "price": 66
+  },
+  {
+    "id": 20,
+    "name": "Almonds (Badam) 250g",
+    "price": 240
+  },
+  {
+    "id": 21,
+    "name": "Chana Dal 1kg",
+    "price": 95
+  },
+  {
+    "id": 22,
+    "name": "Urad Dal 1kg",
+    "price": 145
+  },
+  {
+    "id": 23,
+    "name": "Masoor Dal 1kg",
+    "price": 105
+  },
+  {
+    "id": 24,
+    "name": "Rajma (Kidney Beans) 1kg",
+    "price": 150
+  },
+  {
+    "id": 25,
+    "name": "Kabuli Chana (Chickpeas) 1kg",
+    "price": 140
+  },
+  {
+    "id": 26,
+    "name": "Besan (Gram Flour) 1kg",
+    "price": 90
+  },
+  {
+    "id": 27,
+    "name": "Maida (Refined Flour) 1kg",
+    "price": 48
+  },
+  {
+    "id": 28,
+    "name": "Sooji / Rawa 500g",
+    "price": 32
+  },
+  {
+    "id": 29,
+    "name": "Poha (Flattened Rice) 500g",
+    "price": 40
+  },
+  {
+    "id": 30,
+    "name": "Refined Sunflower Oil 1L",
+    "price": 135
+  },
+  {
+    "id": 31,
+    "name": "Jaggery (Gur) 1kg",
+    "price": 65
+  },
+  {
+    "id": 32,
+    "name": "Coriander Powder (Dhania) 200g",
+    "price": 60
+  },
+  {
+    "id": 33,
+    "name": "Garam Masala 100g",
+    "price": 85
+  },
+  {
+    "id": 34,
+    "name": "Mustard Seeds (Rai) 100g",
+    "price": 25
+  },
+  {
+    "id": 35,
+    "name": "Black Pepper (Kali Mirch) 100g",
+    "price": 95
+  },
+  {
+    "id": 36,
+    "name": "Asafoetida (Hing) 50g",
+    "price": 75
+  },
+  {
+    "id": 37,
+    "name": "Green Cardamom (Elaichi) 50g",
+    "price": 130
+  },
+  {
+    "id": 38,
+    "name": "Cashews (Kaju) 250g",
+    "price": 250
+  },
+  {
+    "id": 39,
+    "name": "Raisins (Kismis) 250g",
+    "price": 110
+  },
+  {
+    "id": 40,
+    "name": "Peanuts (Mungfali) 500g",
+    "price": 85
+  },
+  {
+    "id": 41,
+    "name": "Instant Coffee 50g",
+    "price": 115
+  },
+  {
+    "id": 42,
+    "name": "Tomato Ketchup 500g",
+    "price": 95
+  },
+  {
+    "id": 43,
+    "name": "Mango Pickle 400g",
+    "price": 110
+  },
+  {
+    "id": 44,
+    "name": "Mixed Fruit Jam 500g",
+    "price": 145
+  },
+  {
+    "id": 45,
+    "name": "Namkeen Bhujia 400g",
+    "price": 95
+  },
+  {
+    "id": 46,
+    "name": "Paneer 200g",
+    "price": 90
+  },
+  {
+    "id": 47,
+    "name": "Curd (Dahi) 400g",
+    "price": 35
+  },
+  {
+    "id": 48,
+    "name": "Salted Butter 100g",
+    "price": 58
+  },
+  {
+    "id": 49,
+    "name": "Brown Bread",
+    "price": 45
+  },
+  {
+    "id": 50,
+    "name": "Eggs (6 pcs)",
+    "price": 48
+  },
+  {
+    "id": 51,
+    "name": "Shampoo Bottle 180ml",
+    "price": 135
+  },
+  {
+    "id": 52,
+    "name": "Coconut Hair Oil 200ml",
+    "price": 95
+  },
+  {
+    "id": 53,
+    "name": "Handwash Refill 750ml",
+    "price": 110
+  },
+  {
+    "id": 54,
+    "name": "Floor Cleaner 1L",
+    "price": 115
+  },
+  {
+    "id": 55,
+    "name": "Toilet Cleaner 500ml",
+    "price": 98
+  },
+  {
+    "id": 56,
+    "name": "Dishwash Gel 500ml",
+    "price": 105
+  },
+  {
+    "id": 57,
+    "name": "Agarbatti (Incense Sticks)",
+    "price": 30
+  },
+  {
+    "id": 58,
+    "name": "Matchbox Pack (10 pcs)",
+    "price": 15
+  },
+  {
+    "id": 59,
+    "name": "Garbage Bags Roll",
+    "price": 60
+  },
+  {
+    "id": 60,
+    "name": "AA Batteries (Pack of 4)",
+    "price": 75
+  },
+  {
+    "id": 61,
     "name": "Tea",
-    "price": 120
+    "price": 110
   }
 ]
