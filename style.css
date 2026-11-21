@@ -437,6 +437,11 @@ th {
     margin-bottom: 15px;
 }
 
+.sample-file-buttons a {
+    display: inline-block;
+    text-decoration: none;
+}
+
 .transaction-table-wrapper {
     width: 100%;
     overflow-x: auto;
