@@ -11,7 +11,7 @@ A simple and user-friendly Billing System developed using **HTML, CSS, and JavaS
 - **Bill Generation:** Generates a well-structured and clear billing invoice.
 - **Print Bill:** Allows users to print the generated bill directly.
 - **Simple User Interface:** Easy-to-use and clean interface.
-- - **Add Item:** User can add Item and update Price.
+- **Add Item:** User can add Item and update Price.
 
 ## 🛠️ Technologies Used
 
